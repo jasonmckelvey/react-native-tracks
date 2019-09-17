@@ -1,13 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, Text, Button} from 'react-native';
 
-const TrackListScreen = ({navigate}) => {
+const TrackListScreen = ({navigation}) => {
   return (
     <View>
       <Text style={styles.fakeHeader}>TrackListScreen</Text>
       <Button
         title="Go to Track Detail"
-        onPress={() => navigation.navigate(TrackDetail)}
+        onPress={() => navigation.navigate('TrackDetail')}
       />
     </View>
   );
