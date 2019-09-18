@@ -2,25 +2,17 @@ import React, {useContext} from 'react';
 import styled from 'styled-components';
 import {Context as AuthContext} from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
+import NavLink from '../components/NavLink';
 
 const Wrapper = styled.View`
   padding: 16px;
   flex: 1;
 `;
-const LinkWrapper = styled.TouchableOpacity`
-  margin-top: 24px;
-  align-items: center;
-`;
 const Safe = styled.SafeAreaView`
   flex: 1;
 `;
-const Link = styled.Text`
-  font-size: 14px;
-  font-weight: 400;
-  color: #0172cb;
-`;
 
-const SignupScreen = ({navigation}) => {
+const SignupScreen = () => {
   const {state, signup} = useContext(AuthContext);
 
   return (
@@ -32,9 +24,10 @@ const SignupScreen = ({navigation}) => {
           buttonText="Sign Up"
           onSubmit={signup}
         />
-        <LinkWrapper onPress={() => navigation.navigate('Signin')}>
-          <Link>Have an account? Sign In instead.</Link>
-        </LinkWrapper>
+        <NavLink
+          routeName="Signin"
+          linkText="Have an account? Sign In instead"
+        />
       </Safe>
     </Wrapper>
   );
