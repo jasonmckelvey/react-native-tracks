@@ -1,5 +1,7 @@
 import React, {useContext} from 'react';
 import styled from 'styled-components';
+import {NavigationEvents} from 'react-navigation';
+
 import {Context as AuthContext} from '../context/AuthContext';
 import AuthForm from '../components/AuthForm';
 import NavLink from '../components/NavLink';
@@ -13,11 +15,13 @@ const Safe = styled.SafeAreaView`
 `;
 
 const SignupScreen = () => {
-  const {state, signup} = useContext(AuthContext);
+  const {state, signup, clearErrorMessage} = useContext(AuthContext);
 
   return (
     <Wrapper>
       <Safe>
+        <NavigationEvents onWillBlur={clearErrorMessage} />
+
         <AuthForm
           headerText="Sign Up for Track App"
           errorMessage={state.errorMessage}
