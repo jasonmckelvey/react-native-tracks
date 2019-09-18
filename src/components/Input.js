@@ -11,19 +11,22 @@ const FieldInput = ({label, value, onChangeText}) => {
       autoCapitalize="none"
       autoCorrect={false}
       containerStyle={{
+        // borderWidth: 1,
         marginBottom: 24,
         paddingHorizontal: 0,
-        height: 48,
+        height: 40,
       }}
       inputContainerStyle={{
-        borderBottomWidth: 0.5,
+        // borderWidth: 1,
+        borderBottomWidth: 1,
         borderColor: '#BAC7D5',
         height: 24,
-        flex: 1,
       }}
       labelStyle={{
+        // borderWidth: 1,
         fontSize: 12,
-        fontWeight: '500',
+        fontWeight: '400',
+        color: '#5F738C',
       }}
     />
   );

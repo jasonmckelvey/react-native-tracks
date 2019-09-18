@@ -4,7 +4,7 @@ import styled from 'styled-components';
 
 const ButtonWrapper = styled.TouchableOpacity`
   padding: 10px;
-  background-color: #e8edf1;
+  background-color: #00a991;
   margin-top: 8px;
   border-radius: 4px;
   align-items: center;
@@ -12,6 +12,7 @@ const ButtonWrapper = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   font-size: 15;
   font-weight: 700;
+  color: #fff;
 `;
 
 const Button = ({title, onPress}) => {
