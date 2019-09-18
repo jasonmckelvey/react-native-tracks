@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import {Input} from 'react-native-elements';
 import Button from '../components/Button';
 import FieldInput from '../components/Input';
 import styled from 'styled-components';
+import {Context as AuthContext} from '../context/AuthContext';
 
 const Wrapper = styled.View`
   padding: 16px;
@@ -17,8 +18,13 @@ const Header = styled.Text`
   font-weight: 700;
   margin: 48px 0px 48px 0px;
 `;
+const Alert = styled.Text`
+  font-size: 16px;
+  color: red;
+`;
 
 const SignupScreen = ({navigation}) => {
+  const {state, signup} = useContext(AuthContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
@@ -50,7 +56,8 @@ const SignupScreen = ({navigation}) => {
             fontWeight: '500',
           }}
         />
-        <Button title="Sign Up" onPress={() => navigation.navigate('Signin')} />
+        {state.errorMessage ? <Alert>{state.errorMessage}</Alert> : null}
+        <Button title="Sign Up" onPress={() => signup({email, password})} />
       </Safe>
     </Wrapper>
   );

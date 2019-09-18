@@ -1,6 +1,5 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import styled from 'styled-components';
 import {Input} from 'react-native-elements';
 
 const FieldInput = ({label, value, onChangeText}) => {
