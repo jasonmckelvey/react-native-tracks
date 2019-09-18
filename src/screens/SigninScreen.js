@@ -1,18 +1,40 @@
-import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
+import React, {useContext} from 'react';
+import styled from 'styled-components';
+import {Context as AuthContext} from '../context/AuthContext';
+import AuthForm from '../components/AuthForm';
+import NavLink from '../components/NavLink';
+
+const Wrapper = styled.View`
+  padding: 16px;
+  flex: 1;
+`;
+const Safe = styled.SafeAreaView`
+  flex: 1;
+`;
 
 const SigninScreen = () => {
+  const {state, signup} = useContext(AuthContext);
+
   return (
-    <View>
-      <Text style={styles.fakeHeader}>SigninScreen</Text>
-    </View>
+    <Wrapper>
+      <Safe>
+        <AuthForm
+          headerText="Sign in to Track App"
+          errorMessage="{state.errorMessage}"
+          buttonText="Sign In"
+          onSubmit={() => {}}
+        />
+        <NavLink
+          routeName="Signup"
+          linkText="Don't have an account? Sign Up instead"
+        />
+      </Safe>
+    </Wrapper>
   );
 };
 
-const styles = StyleSheet.create({
-  fakeHeader: {
-    fontSize: 48,
-  },
-});
+SigninScreen.navigationOptions = {
+  header: null,
+};
 
 export default SigninScreen;
