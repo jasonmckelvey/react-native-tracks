@@ -13,16 +13,16 @@ const Safe = styled.SafeAreaView`
 `;
 
 const SigninScreen = () => {
-  const {state, signup} = useContext(AuthContext);
+  const {state, signin} = useContext(AuthContext);
 
   return (
     <Wrapper>
       <Safe>
         <AuthForm
           headerText="Sign in to Track App"
-          errorMessage="{state.errorMessage}"
+          errorMessage={state.errorMessage}
           buttonText="Sign In"
-          onSubmit={() => {}}
+          onSubmit={signin}
         />
         <NavLink
           routeName="Signup"
