@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import styled from 'styled-components';
 import {NavigationEvents} from 'react-navigation';
 
@@ -15,8 +15,13 @@ const Safe = styled.SafeAreaView`
 `;
 
 const SignupScreen = () => {
-  const {state, signup, clearErrorMessage} = useContext(AuthContext);
+  const {state, signup, clearErrorMessage, tryLocalSignin} = useContext(
+    AuthContext,
+  );
 
+  useEffect(() => {
+    tryLocalSignin();
+  }, []);
   return (
     <Wrapper>
       <Safe>
