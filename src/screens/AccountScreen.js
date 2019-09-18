@@ -2,8 +2,14 @@ import React, {useContext} from 'react';
 import styled from 'styled-components';
 import Button from '../components/Button';
 import {Context as AuthContext} from '../context/AuthContext';
-import {StyleSheet, View, Text} from 'react-native';
 
+const Header = styled.Text`
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.25px;
+  margin: 48px 0px 48px 0px;
+  color: #252a31;
+`;
 const Wrapper = styled.View`
   padding: 16px;
   flex: 1;
@@ -18,17 +24,11 @@ const AccountScreen = () => {
   return (
     <Wrapper>
       <Safe>
-        <Text style={styles.fakeHeader}>AccountScreen</Text>
+        <Header>AccountScreen</Header>
         <Button title="Sign Out" onPress={signout} />
       </Safe>
     </Wrapper>
   );
 };
-
-const styles = StyleSheet.create({
-  fakeHeader: {
-    fontSize: 48,
-  },
-});
 
 export default AccountScreen;
