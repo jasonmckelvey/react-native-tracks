@@ -24,6 +24,8 @@ const AuthForm = ({headerText, errorMessage, onSubmit, buttonText}) => {
       <Header>{headerText}</Header>
       <FieldInput label="Email" value={email} onChangeText={setEmail} />
       <FieldInput
+        secure={true}
+        // secureTextEntry={true}
         label="Password"
         value={password}
         onChangeText={setPassword}

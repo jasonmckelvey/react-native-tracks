@@ -2,11 +2,12 @@
 import React from 'react';
 import {Input} from 'react-native-elements';
 
-const FieldInput = ({label, value, onChangeText}) => {
+const FieldInput = ({label, value, onChangeText, secure}) => {
   return (
     <Input
       label={label}
       value={value}
+      secureTextEntry={secure}
       onChangeText={onChangeText}
       autoCapitalize="none"
       autoCorrect={false}
