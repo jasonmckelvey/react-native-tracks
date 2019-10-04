@@ -1,6 +1,11 @@
+import '../_mockLocation';
 import React, {useEffect, useState} from 'react';
 import Map from '../components/Map';
-import {requestPermissionsAsync} from 'expo-location';
+import {
+  requestPermissionsAsync,
+  watchPositionAsync,
+  Accuracy,
+} from 'expo-location';
 import styled from 'styled-components';
 
 const Header = styled.Text`
@@ -31,6 +36,16 @@ const TrackCreateScreen = () => {
   const startWacthing = async () => {
     try {
       await requestPermissionsAsync();
+      await watchPositionAsync(
+        {
+          accuracy: Accuracy.BestForNavigation,
+          timeInterval: 1000,
+          distanceInterval: 10,
+        },
+        location => {
+          console.log(location);
+        },
+      );
     } catch (e) {
       setErr(e);
     }
