@@ -1,5 +1,5 @@
 import '../_mockLocation';
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import Map from '../components/Map';
 import {
   requestPermissionsAsync,
@@ -7,6 +7,7 @@ import {
   Accuracy,
 } from 'expo-location';
 import styled from 'styled-components';
+import {Context as LocationContext} from '../context/LocationContext';
 
 const Header = styled.Text`
   font-size: 24px;
@@ -31,6 +32,7 @@ const Safe = styled.SafeAreaView`
 `;
 
 const TrackCreateScreen = () => {
+  const {addLocation} = useContext(LocationContext);
   const [err, setErr] = useState(null);
 
   const startWacthing = async () => {
@@ -43,7 +45,7 @@ const TrackCreateScreen = () => {
           distanceInterval: 10,
         },
         location => {
-          console.log(location);
+          addLocation(location);
         },
       );
     } catch (e) {
